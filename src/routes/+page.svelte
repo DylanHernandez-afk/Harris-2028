@@ -1,4 +1,6 @@
 <script>
+  import { writable } from 'svelte/store';
+  
   const logoSrc = "https://www.figma.com/api/mcp/asset/080d5f66-212a-4f91-8290-a8e87a01410a";
   const footerLogoSrc = "https://www.figma.com/api/mcp/asset/7fc0e96f-1cf7-4f62-adb3-f19e5853551b";
   const btnJoinBgDefault = "https://www.figma.com/api/mcp/asset/4655d701-7f01-40a3-b34c-589a282b0802";
@@ -25,7 +27,22 @@
   const galleryLeftSrc = "https://www.figma.com/api/mcp/asset/3f39706a-a6dc-4635-863f-af3a20913103";
   const galleryCenterSrc = "https://www.figma.com/api/mcp/asset/18a31394-a03e-4937-8a14-be20c51d0df9";
   const galleryRightSrc = "https://www.figma.com/api/mcp/asset/7737048f-6d92-403d-9585-980c0c4a4724";
-  const videoSrc = "";
+  const videoSrc = "/videos/Kam-video.mp4";
+  
+  // Gallery state
+  let activeGallery = 'story';
+  
+  const galleryImages = {
+    story: { left: galleryLeftSrc, center: galleryCenterSrc, right: galleryRightSrc },
+    now: { left: galleryLeftSrc, center: galleryCenterSrc, right: galleryRightSrc },
+    soon: { left: galleryLeftSrc, center: galleryCenterSrc, right: galleryRightSrc }
+  };
+  
+  $: currentImages = galleryImages[activeGallery];
+  
+  function setGallery(tab) {
+    activeGallery = tab;
+  }
 </script>
 
 <main class="page">
@@ -43,7 +60,7 @@
       <div class="split-text">
         <h2>Fighting for the America We Love.</h2>
         <p class="split-quote">Freedom is not a state; it is an act.</p>
-        <p>
+        <p class="split-para-spacer">
           We are a nation of joyful warriors, and in 2028, we choose hope over fear, unity over
           division, and the relentless pursuit of justice for all.
         </p>
@@ -64,19 +81,25 @@
   </section>
 
   <section class="gallery-section">
+    <div class="gallery-title">
+      <span class="gallery-title-part gallery-title-kamalas">Kamala's</span>
+      <span class="gallery-title-part gallery-title-legacy">LEGACY</span>
+      <span class="gallery-title-part gallery-title-inthe">in the</span>
+      <span class="gallery-title-part gallery-title-making">MAKING</span>
+    </div>
     <div class="gallery-grid">
       <figure class="gallery-item gallery-item--side">
-        <img src={galleryLeftSrc} alt="Galleria sinistra" />
+        <img src={currentImages.left} alt="Galleria sinistra" />
       </figure>
       <figure class="gallery-item gallery-item--center">
-        <img src={galleryCenterSrc} alt="Galleria centrale" />
+        <img src={currentImages.center} alt="Galleria centrale" />
       </figure>
       <figure class="gallery-item gallery-item--side">
-        <img src={galleryRightSrc} alt="Galleria destra" />
+        <img src={currentImages.right} alt="Galleria destra" />
       </figure>
     </div>
     <div class="gallery-buttons">
-      <button class="figma-btn figma-btn--choice" type="button" aria-label="Story">
+      <button class="figma-btn figma-btn--choice {activeGallery === 'story' ? 'active' : ''}" type="button" aria-label="Story" on:click={() => setGallery('story')}>
         <img class="figma-btn-bg state-default" src={btnChoiceBgDefault} alt="" />
         <img class="figma-btn-bg state-hover" src={btnChoiceBgHover} alt="" />
         <img class="figma-btn-bg state-pressed" src={btnChoiceBgPressed} alt="" />
@@ -85,7 +108,7 @@
         <img class="figma-btn-inner state-pressed" src={btnChoiceInnerPressed} alt="" />
         <span>STORY</span>
       </button>
-      <button class="figma-btn figma-btn--choice" type="button" aria-label="Now">
+      <button class="figma-btn figma-btn--choice {activeGallery === 'now' ? 'active' : ''}" type="button" aria-label="Now" on:click={() => setGallery('now')}>
         <img class="figma-btn-bg state-default" src={btnChoiceBgDefault} alt="" />
         <img class="figma-btn-bg state-hover" src={btnChoiceBgHover} alt="" />
         <img class="figma-btn-bg state-pressed" src={btnChoiceBgPressed} alt="" />
@@ -94,7 +117,7 @@
         <img class="figma-btn-inner state-pressed" src={btnChoiceInnerPressed} alt="" />
         <span>NOW</span>
       </button>
-      <button class="figma-btn figma-btn--choice" type="button" aria-label="Soon">
+      <button class="figma-btn figma-btn--choice {activeGallery === 'soon' ? 'active' : ''}" type="button" aria-label="Soon" on:click={() => setGallery('soon')}>
         <img class="figma-btn-bg state-default" src={btnChoiceBgDefault} alt="" />
         <img class="figma-btn-bg state-hover" src={btnChoiceBgHover} alt="" />
         <img class="figma-btn-bg state-pressed" src={btnChoiceBgPressed} alt="" />
@@ -106,15 +129,12 @@
     </div>
   </section>
 
-  <section class="video-section">
-    <h3>Video</h3>
-    <video controls poster={galleryCenterSrc} class="video-player">
-      {#if videoSrc}
-        <source src={videoSrc} type="video/mp4" />
-      {/if}
-      Il tuo browser non supporta il tag video.
-    </video>
-  </section>
+  <video autoplay muted loop class="video-section">
+    {#if videoSrc}
+      <source src={videoSrc} type="video/mp4" />
+    {/if}
+    Il tuo browser non supporta il tag video.
+  </video>
 
   <footer class="footer">
     <img src={footerLogoSrc} alt="Politecnico Milano" />
@@ -185,6 +205,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.3;
+  }
+  .split-para-spacer {
+    margin-bottom: 32px !important;
   }
   .split-photo-wrap { display: flex; justify-content: center; }
   .split-photo {
@@ -302,33 +325,67 @@
     height: 100%;
     display: block;
     object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 0 56px;
+    text-align: center;
+  }
+  .gallery-title-part {
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .gallery-title-kamalas {
+    font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
+    font-size: 64px;
+    color: var(--brand-500);
+  }
+  .gallery-title-legacy {
+    font-family: "Mr Eaves XL San OT", var(--font-primary), sans-serif;
+    font-size: 128px;
+    color: var(--brand-900);
+    font-weight: 800;
+  }
+  .gallery-title-inthe {
+    font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
+    font-size: 64px;
+    color: var(--brand-500);
+    flex-basis: 100%;
+  }
+  .gallery-title-making {
+    font-family: "Mr Eaves XL San OT", var(--font-primary), sans-serif;
+    font-size: 128px;
+    color: var(--brand-800);
+    font-weight: 800;
+    flex-basis: 100%;
   }
 
   .gallery-buttons {
-    margin-top: 58px;
+    margin-top: 80px;
+    margin-bottom: 120px;
     display: flex;
     justify-content: center;
     gap: 116px;
   }
 
   .video-section {
-    margin: 84px 0;
-    text-align: center;
-  }
-  .video-section h3 {
-    margin: 0 0 20px;
-    color: var(--brand-700);
-    font-family: var(--font-primary);
-    font-size: 48px;
-    font-style: italic;
-    font-weight: 700;
-  }
-  .video-player {
-    width: 100%;
-    max-width: 980px;
-    height: auto;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-bottom: 80px;
     display: block;
-    margin: 0 auto;
+    border: 0;
+    padding: 0;
+    background: transparent;
   }
 
   .footer {

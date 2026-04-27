@@ -5,12 +5,9 @@
 </script>
 
 <section class="video-section">
-  {#if title}
-    <h2 class="video-title">{title}</h2>
-  {/if}
+  
   <video controls poster={poster} class="video-player">
     <source src={videoSrc} type="video/mp4" />
-    Your browser does not support the video tag.
   </video>
 </section>
 
