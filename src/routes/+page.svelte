@@ -16,12 +16,7 @@
   const btnChoiceInnerHover = "https://www.figma.com/api/mcp/asset/01e5ee40-729d-486e-acc4-8cf65629d1f2";
   const btnChoiceInnerPressed = "https://www.figma.com/api/mcp/asset/6fc7b7ac-05ba-42bb-a316-13a53026c8ea";
 
-  // TODO: sostituisci con la tua immagine hero finale (testo + foto già inclusi)
-  const heroPlaceholder =
-    "data:image/svg+xml;utf8," +
-    encodeURIComponent(
-      `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#f7f2e7"/><rect x="20" y="20" width="1560" height="860" rx="20" fill="none" stroke="#637c94" stroke-width="4" stroke-dasharray="18 12"/><text x="80" y="170" fill="#31496a" font-family="Arial, sans-serif" font-size="56" font-weight="700">HERO PLACEHOLDER</text><text x="80" y="250" fill="#31496a" font-family="Arial, sans-serif" font-size="32">Sostituisci questo blocco con la tua immagine finale.</text></svg>`
-    );
+  const heroSrc = "/images/Kam-desktop.png";
 
   const sidePhotoSrc = "https://www.figma.com/api/mcp/asset/41acd5c2-c28f-4573-8314-c0acc9631ff2";
   const galleryLeftSrc = "https://www.figma.com/api/mcp/asset/3f39706a-a6dc-4635-863f-af3a20913103";
@@ -63,8 +58,7 @@
   </header>
 
   <section class="hero">
-    <!-- Sostituisci questa immagine placeholder con la tua hero finale -->
-    <img class="hero-image" src={heroPlaceholder} alt="Hero placeholder" />
+    <img class="hero-image" src={heroSrc} alt="Hero image" />
   </section>
 
   <section class="split-band">
@@ -158,7 +152,7 @@
     width: 100%;
     max-width: 1512px;
     margin: 0 auto;
-    padding: 40px 39px 96px;
+    padding: 40px 39px 0;
     background: #e2d5bf;
     box-sizing: border-box;
   }
@@ -180,15 +174,18 @@
     margin-right: calc(50% - 50vw);
     background: var(--brand-700);
     margin-bottom: 80px;
+    display: flex;
+    align-items: flex-end;
   }
   .split-section {
     max-width: 1512px;
     margin: 0 auto;
+    width: 100%;
     padding: 56px 39px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 56px;
-    align-items: center;
+    align-items: flex-end;
   }
   .split-text h2 {
     margin: 0 0 20px;
@@ -200,7 +197,7 @@
     line-height: 1;
   }
   .split-quote {
-    margin: 0 0 40px;
+    margin: 0 0 60px;
     color: #fff;
     font-family: "Mrs Eaves", var(--font-primary), serif;
     font-size: 40px;
@@ -208,6 +205,8 @@
     font-variant: small-caps;
     letter-spacing: 0.02em;
     line-height: 1.2;
+    padding-bottom: 30px;
+    padding-top: 20px;
   }
   .split-text p {
     margin: 0;
@@ -221,7 +220,13 @@
   .split-para-spacer {
     margin-bottom: 32px !important;
   }
-  .split-photo-wrap { display: flex; justify-content: center; }
+  .split-photo-wrap { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end;
+    margin-bottom: -56px;
+    padding-bottom: 0;
+  }
   .split-photo {
     width: 100%;
     max-width: 692px;
@@ -349,9 +354,10 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    background: var(--background-primary);
-    padding: 80px 39px;
+    background: #e2d5bf;
+    padding: 35px 39px;
     margin-bottom: 0;
+    
   }
 
   .gallery-title {
@@ -402,13 +408,14 @@
     display: flex;
     justify-content: center;
     gap: 116px;
+    margin-bottom: 70px;
   }
 
   .video-section {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    margin-bottom: 80px;
+    margin-bottom: 0;
     display: block;
     border: 0;
     padding: 0;
@@ -419,6 +426,7 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+    margin-top: 0;
     height: 158px;
     background: var(--brand-700);
     display: flex;
@@ -430,5 +438,72 @@
     height: 78px;
     object-fit: contain;
     display: block;
+  }
+</style>
+  /* ===== RESPONSIVE DESIGN ===== */
+
+  /* Mobile (max-width: 744px) */
+  @media (max-width: 744px) {
+    .page { padding: 24px 24px 0; max-width: 100%; }
+    .header { margin-bottom: 25px; }
+    .logo { width: 145px; height: 45px; }
+    .hero { margin-bottom: 20px; }
+    .hero-image { min-height: 280px; border-radius: 8px; }
+    .split-band { margin-bottom: 40px; }
+    .split-section { grid-template-columns: 1fr 1fr; gap: 16px; padding: 40px 24px; align-items: flex-end; }
+    .split-text h2 { font-size: 32px; margin-bottom: 12px; line-height: 1.1; }
+    .split-quote { margin: 0 0 24px; font-size: 20px; padding-bottom: 12px; padding-top: 0; line-height: 1.1; }
+    .split-text p { font-size: 16px; line-height: 1.3; }
+    .split-para-spacer { margin-bottom: 18px !important; font-size: 14px; }
+    .split-photo-wrap { align-items: flex-end; }
+    .split-photo { max-width: 157px; max-height: 153px; }
+    .figma-btn--join { width: 142px; height: 43px; margin-top: 16px; }
+    .figma-btn--join .figma-btn-bg { width: 142px; height: 43px; }
+    .figma-btn--join .figma-btn-inner { width: 139px; height: 41px; left: 7px; top: 5px; }
+    .figma-btn--join span { font-size: 16px; top: 11px; }
+    .gallery-section { padding: 24px 24px; }
+    .gallery-title { margin-bottom: 24px; }
+    .gallery-title-kamalas { font-size: 24px; margin-bottom: 4px; }
+    .gallery-title-legacy { font-size: 48px; margin-right: 4px; }
+    .gallery-title-inthe { font-size: 24px; margin: 0 4px 0 0; }
+    .gallery-title-making { font-size: 48px; }
+    .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+    .gallery-item--side { aspect-ratio: 4/5; }
+    .gallery-item--center { aspect-ratio: 3/2; }
+    .gallery-buttons { gap: 16px; margin: 32px auto 0; flex-wrap: wrap; justify-content: center; }
+    .figma-btn--choice { width: 92px; height: 28px; }
+    .figma-btn--choice .figma-btn-bg { width: 92px; height: 28px; }
+    .figma-btn--choice .figma-btn-inner { width: 90px; height: 27px; left: 5px; top: 3px; }
+    .figma-btn--choice span { font-size: 13px; top: 7px; }
+    .video-section { margin-bottom: 0; }
+    .footer { height: 80px; }
+    .footer img { width: 120px; height: 46px; }
+  }
+
+  /* Tablet (745px to 1024px) */
+  @media (min-width: 745px) and (max-width: 1024px) {
+    .page { padding: 36px 32px 0; }
+    .header { margin-bottom: 26px; }
+    .hero { margin-bottom: 48px; }
+    .hero-image { min-height: 360px; border-radius: 10px; }
+    .split-band { margin-bottom: 64px; }
+    .split-section { padding: 48px 32px; gap: 40px; }
+    .split-text h2 { font-size: 48px; margin-bottom: 18px; }
+    .split-quote { margin: 0 0 48px; font-size: 32px; padding-bottom: 24px; padding-top: 16px; }
+    .split-text p { font-size: 24px; }
+    .split-para-spacer { margin-bottom: 28px !important; }
+    .figma-btn { width: 180px; height: 56px; }
+    .figma-btn-bg { width: 180px; height: 56px; }
+    .figma-btn-inner { width: 176px; height: 54px; left: 9px; top: 7px; }
+    .figma-btn span { font-size: 24px; top: 15px; }
+    .gallery-section { padding: 32px 32px; }
+    .gallery-title { margin-bottom: 40px; }
+    .gallery-title-kamalas { font-size: 48px; }
+    .gallery-title-legacy { font-size: 96px; }
+    .gallery-title-inthe { font-size: 40px; }
+    .gallery-title-making { font-size: 96px; }
+    .gallery-grid { gap: 32px; }
+    .gallery-buttons { gap: 80px; margin: 64px auto 0; }
+    .figma-btn--choice span { font-size: 18px; }
   }
 </style>
