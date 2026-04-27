@@ -159,7 +159,7 @@
     max-width: 1512px;
     margin: 0 auto;
     padding: 40px 39px 96px;
-    background: var(--background-primary);
+    background: #e2d5bf;
     box-sizing: border-box;
   }
   .header { margin-bottom: 28px; }

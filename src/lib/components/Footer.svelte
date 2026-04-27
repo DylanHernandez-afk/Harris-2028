@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 0;
   background: var(--background-secondary);
 }
 .footer-logo {
