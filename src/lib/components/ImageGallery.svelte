@@ -1,11 +1,14 @@
 <script>
+  /** @typedef {{ src: string; alt?: string }} GalleryImage */
+
+  /** @type {GalleryImage[]} */
   export let images = [];
 </script>
 
 <div class="image-gallery">
   {#each images as img (img.src)}
     <div class="gallery-item">
-      <img src={img.src} alt={img.alt} />
+      <img src={img.src} alt={img.alt ?? ""} />
     </div>
   {/each}
 </div>
