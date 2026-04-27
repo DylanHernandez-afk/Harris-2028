@@ -1,0 +1,34 @@
+
+:root {
+  /* Light mode (default) */
+  --brand-100: #637c94;
+  --brand-500: #637c94;
+  --brand-700: #31496a;
+  --brand-800: #1f3255;
+  --brand-900: #132247;
+
+  --background-primary: #e2d5bf;
+  --background-secondary: #fff;
+
+  --text-primary: #132247;
+  --text-secondary: #637c94;
+  --text-inverse: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Brand Colors (dark) */
+    --brand-100: #a2b8c9;
+    --brand-500: #8fa3b8;
+    --brand-700: #637c94;
+    --brand-800: #31496a;
+    --brand-900: #0a1424;
+
+    --background-primary: #1a202c;
+    --background-secondary: #232b38;
+
+    --text-primary: #fff;
+    --text-secondary: #a2b8c9;
+    --text-inverse: #132247;
+  }
+}

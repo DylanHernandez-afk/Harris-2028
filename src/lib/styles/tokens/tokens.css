@@ -1,1 +1,5 @@
-@import "./tokens/typography.css";
+@import "./typography.css";
+@import "./colors.css";
+@import "./fonts.css";
+@import "./sizes.css";
+@import "./weights.css";
