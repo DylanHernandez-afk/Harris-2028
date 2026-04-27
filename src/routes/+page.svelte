@@ -152,16 +152,16 @@
   .split-section {
     max-width: 1512px;
     margin: 0 auto;
-    padding: 56px 39px 0;
+    padding: 56px 39px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 56px;
-    align-items: start;
+    align-items: center;
   }
   .split-text h2 {
     margin: 0 0 20px;
     color: #fff;
-    font-family: var(--font-primary);
+    font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
     font-size: 64px;
     font-style: italic;
     font-weight: 700;
@@ -170,24 +170,23 @@
   .split-quote {
     margin: 0 0 16px;
     color: #fff;
-    font-family: var(--font-primary);
-    font-size: 24px;
-    font-style: italic;
+    font-family: "Mrs Eaves", var(--font-primary), serif;
+    font-size: 40px;
+    font-style: normal;
+    font-variant: small-caps;
+    letter-spacing: 0.02em;
     line-height: 1.2;
   }
   .split-text p {
     margin: 0;
     color: #fff;
-    font-family: var(--font-secondary);
+    font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
     font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
     line-height: 1.3;
   }
-  .split-photo-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    align-self: end;
-  }
+  .split-photo-wrap { display: flex; justify-content: center; }
   .split-photo {
     width: 100%;
     max-width: 692px;
@@ -238,7 +237,7 @@
     font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
     font-size: 32px;
     font-style: italic;
-    font-weight: 900;
+    font-weight: 800;
     line-height: 1;
     color: #ffffff;
     text-align: center;
@@ -249,9 +248,9 @@
   }
   .figma-btn--join span {
     color: var(--brand-500);
-    text-align: center;
     left: 0;
     right: 0;
+    text-align: center;
     font-size: 32px;
   }
   .figma-btn:hover {
@@ -326,6 +325,7 @@
   }
   .video-player {
     width: 100%;
+    max-width: 980px;
     height: auto;
     display: block;
     margin: 0 auto;
