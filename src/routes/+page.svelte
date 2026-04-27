@@ -1,392 +1,350 @@
 <script>
-  // Asset immagini dalle URL localhost (dal design context Figma)
-  const imgKamalaLogo = 'http://localhost:3845/assets/afb6a61f97b5f5b0be54976114c879bf6067bf62.png';
-  const imgKam = 'http://localhost:3845/assets/72e1f9b982fbd28290e25f0b17c63e7897d7822b.png';
-  const imgYoung = 'http://localhost:3845/assets/a3e82c807733060694019ef8f1f226608b63c561.png';
-  const imgPast2 = 'http://localhost:3845/assets/b7eaef7603bf95c4a3d019bd214bb315147653cd.png';
-  const imgKamyoung = 'http://localhost:3845/assets/83ccb406512e19799cf65dfb7fb5c2b4bcb00464.png';
-  const imgKamkids = 'http://localhost:3845/assets/8a8d90ef230e804408bac097d5c355c00a627478.png';
-  const imgPolitecnicoBianco = 'http://localhost:3845/assets/6b9b4cf31a02e2b91a6f95a24e22d7aa4e17a35f.png';
-  const imgOfficeOfKamala = 'http://localhost:3845/assets/d1e0bb7f3f31eb3f729389a837a23311f252133f.svg';
-  const imgVector3 = 'http://localhost:3845/assets/00ccfde73899b54e23cc249ed9a168151b36bc86.svg';
-  const imgVector4 = 'http://localhost:3845/assets/6beaa98763a0df76c328eab09624c387b69d5363.svg';
-  const imgVector5 = 'http://localhost:3845/assets/a7f1045418e9214e8e981f36a1489eae7f6bf5de.svg';
+  const logoSrc = "https://www.figma.com/api/mcp/asset/080d5f66-212a-4f91-8290-a8e87a01410a";
+  const footerLogoSrc = "https://www.figma.com/api/mcp/asset/7fc0e96f-1cf7-4f62-adb3-f19e5853551b";
+  const btnJoinBgDefault = "https://www.figma.com/api/mcp/asset/4655d701-7f01-40a3-b34c-589a282b0802";
+  const btnJoinBgHover = "https://www.figma.com/api/mcp/asset/70a53341-933e-4179-b919-261b4be98cf6";
+  const btnJoinBgPressed = "https://www.figma.com/api/mcp/asset/3f671ead-58cc-4948-91db-506208a437ac";
+  const btnJoinInnerDefault = "https://www.figma.com/api/mcp/asset/c9f58314-5795-4b8e-811a-78ea17e91dba";
+  const btnJoinInnerHover = "https://www.figma.com/api/mcp/asset/35cab2c3-ba92-4a5a-9046-45edf4ae1324";
+  const btnJoinInnerPressed = "https://www.figma.com/api/mcp/asset/3e5a21ea-e1ef-44be-b7b8-fde769141a2e";
+  const btnChoiceBgDefault = "https://www.figma.com/api/mcp/asset/6453163f-cd60-432a-a6e2-176048f77316";
+  const btnChoiceBgHover = "https://www.figma.com/api/mcp/asset/c188fb26-c7bb-48ce-90b4-1e7849fd833f";
+  const btnChoiceBgPressed = "https://www.figma.com/api/mcp/asset/3f244a8f-87f1-48bc-a341-b9520e9399d3";
+  const btnChoiceInnerDefault = "https://www.figma.com/api/mcp/asset/c591efb5-addc-4a84-b7d4-8e0d06cf82b0";
+  const btnChoiceInnerHover = "https://www.figma.com/api/mcp/asset/01e5ee40-729d-486e-acc4-8cf65629d1f2";
+  const btnChoiceInnerPressed = "https://www.figma.com/api/mcp/asset/6fc7b7ac-05ba-42bb-a316-13a53026c8ea";
 
-  let selectedImageSet = 0;
+  // TODO: sostituisci con la tua immagine hero finale (testo + foto già inclusi)
+  const heroPlaceholder =
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#f7f2e7"/><rect x="20" y="20" width="1560" height="860" rx="20" fill="none" stroke="#637c94" stroke-width="4" stroke-dasharray="18 12"/><text x="80" y="170" fill="#31496a" font-family="Arial, sans-serif" font-size="56" font-weight="700">HERO PLACEHOLDER</text><text x="80" y="250" fill="#31496a" font-family="Arial, sans-serif" font-size="32">Sostituisci questo blocco con la tua immagine finale.</text></svg>`
+    );
+
+  const sidePhotoSrc = "https://www.figma.com/api/mcp/asset/41acd5c2-c28f-4573-8314-c0acc9631ff2";
+  const galleryLeftSrc = "https://www.figma.com/api/mcp/asset/3f39706a-a6dc-4635-863f-af3a20913103";
+  const galleryCenterSrc = "https://www.figma.com/api/mcp/asset/18a31394-a03e-4937-8a14-be20c51d0df9";
+  const galleryRightSrc = "https://www.figma.com/api/mcp/asset/7737048f-6d92-403d-9585-980c0c4a4724";
+  const videoSrc = "";
 </script>
 
-<main class="container">
-  <!-- Header -->
-  <div class="header">
-    <img src={imgKamalaLogo} alt="Kamala Logo" class="logo" />
-  </div>
+<main class="page">
+  <header class="header">
+    <img class="logo" src={logoSrc} alt="Logo" />
+  </header>
 
-  <!-- Hero Section with WE WIN -->
   <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <h1 class="title-we-win">WE WIN</h1>
-      </div>
-      <div class="hero-right">
-        <img src={imgKam} alt="Kamala" class="hero-image" />
-      </div>
-    </div>
-    <h2 class="title-when">When</h2>
-    <h2 class="title-we-fight">WE FIGHT</h2>
+    <!-- Sostituisci questa immagine placeholder con la tua hero finale -->
+    <img class="hero-image" src={heroPlaceholder} alt="Hero placeholder" />
   </section>
 
-  <!-- Office of Kamala -->
-  <div class="office-section">
-    <img src={imgOfficeOfKamala} alt="Office of Kamala D. Harris" class="office-image" />
-  </div>
-
-  <!-- Dark Section with Text and Image -->
-  <section class="dark-section">
-    <div class="dark-content">
-      <p class="text-kamala">Kamala's</p>
-      <h3 class="text-legacy">LEGACY MAKING in the</h3>
-      <p class="text-body">Fighting for the America We Love.</p>
-      <p class="text-small">Freedom is not a state; it is an act.</p>
-      <p class="text-body">We are a nation of joyful warriors, and in 2028, we choose hope over fear, unity over division, and the relentless pursuit of justice for all.</p>
+  <section class="split-band">
+    <div class="split-section">
+      <div class="split-text">
+        <h2>Fighting for the America We Love.</h2>
+        <p class="split-quote">Freedom is not a state; it is an act.</p>
+        <p>
+          We are a nation of joyful warriors, and in 2028, we choose hope over fear, unity over
+          division, and the relentless pursuit of justice for all.
+        </p>
+        <button class="figma-btn figma-btn--join" type="button" aria-label="Join the Fight">
+          <img class="figma-btn-bg state-default" src={btnJoinBgDefault} alt="" />
+          <img class="figma-btn-bg state-hover" src={btnJoinBgHover} alt="" />
+          <img class="figma-btn-bg state-pressed" src={btnJoinBgPressed} alt="" />
+          <img class="figma-btn-inner state-default" src={btnJoinInnerDefault} alt="" />
+          <img class="figma-btn-inner state-hover" src={btnJoinInnerHover} alt="" />
+          <img class="figma-btn-inner state-pressed" src={btnJoinInnerPressed} alt="" />
+          <span>Join the Fight</span>
+        </button>
+      </div>
+      <div class="split-photo-wrap">
+        <img class="split-photo" src={sidePhotoSrc} alt="Foto sezione" />
+      </div>
     </div>
-    <img src={imgKamkids} alt="Kamala with kids" class="dark-image" />
   </section>
 
-  <!-- Gallery Section -->
   <section class="gallery-section">
     <div class="gallery-grid">
-      <img src={imgKamyoung} alt="Kamala Young" class="gallery-img" />
-      <img src={imgPast2} alt="Past" class="gallery-img" />
-      <img src={imgYoung} alt="Young" class="gallery-img" />
+      <figure class="gallery-item gallery-item--side">
+        <img src={galleryLeftSrc} alt="Galleria sinistra" />
+      </figure>
+      <figure class="gallery-item gallery-item--center">
+        <img src={galleryCenterSrc} alt="Galleria centrale" />
+      </figure>
+      <figure class="gallery-item gallery-item--side">
+        <img src={galleryRightSrc} alt="Galleria destra" />
+      </figure>
     </div>
-
-    <div class="buttons-section">
-      <button class="btn btn-primary">
-        <svg class="btn-svg" viewBox="0 0 224 128">
-          <image href={imgVector3} width="224" height="128" />
-        </svg>
-        <svg class="btn-inner" viewBox="0 0 212 63">
-          <image href={imgVector4} width="212" height="63" />
-        </svg>
-        <span class="btn-text">Join the Fight</span>
+    <div class="gallery-buttons">
+      <button class="figma-btn figma-btn--choice" type="button" aria-label="Story">
+        <img class="figma-btn-bg state-default" src={btnChoiceBgDefault} alt="" />
+        <img class="figma-btn-bg state-hover" src={btnChoiceBgHover} alt="" />
+        <img class="figma-btn-bg state-pressed" src={btnChoiceBgPressed} alt="" />
+        <img class="figma-btn-inner state-default" src={btnChoiceInnerDefault} alt="" />
+        <img class="figma-btn-inner state-hover" src={btnChoiceInnerHover} alt="" />
+        <img class="figma-btn-inner state-pressed" src={btnChoiceInnerPressed} alt="" />
+        <span>STORY</span>
       </button>
-      <button class="btn btn-secondary">
-        <svg class="btn-svg" viewBox="0 0 216 128">
-          <image href={imgVector5} width="216" height="128" />
-        </svg>
-        <svg class="btn-inner" viewBox="0 0 212 63">
-          <image href={imgVector4} width="212" height="63" />
-        </svg>
-        <span class="btn-text">STORY</span>
+      <button class="figma-btn figma-btn--choice" type="button" aria-label="Now">
+        <img class="figma-btn-bg state-default" src={btnChoiceBgDefault} alt="" />
+        <img class="figma-btn-bg state-hover" src={btnChoiceBgHover} alt="" />
+        <img class="figma-btn-bg state-pressed" src={btnChoiceBgPressed} alt="" />
+        <img class="figma-btn-inner state-default" src={btnChoiceInnerDefault} alt="" />
+        <img class="figma-btn-inner state-hover" src={btnChoiceInnerHover} alt="" />
+        <img class="figma-btn-inner state-pressed" src={btnChoiceInnerPressed} alt="" />
+        <span>NOW</span>
       </button>
-      <button class="btn btn-secondary">
-        <svg class="btn-svg" viewBox="0 0 216 128">
-          <image href={imgVector5} width="216" height="128" />
-        </svg>
-        <svg class="btn-inner" viewBox="0 0 212 63">
-          <image href={imgVector4} width="212" height="63" />
-        </svg>
-        <span class="btn-text">SOON</span>
+      <button class="figma-btn figma-btn--choice" type="button" aria-label="Soon">
+        <img class="figma-btn-bg state-default" src={btnChoiceBgDefault} alt="" />
+        <img class="figma-btn-bg state-hover" src={btnChoiceBgHover} alt="" />
+        <img class="figma-btn-bg state-pressed" src={btnChoiceBgPressed} alt="" />
+        <img class="figma-btn-inner state-default" src={btnChoiceInnerDefault} alt="" />
+        <img class="figma-btn-inner state-hover" src={btnChoiceInnerHover} alt="" />
+        <img class="figma-btn-inner state-pressed" src={btnChoiceInnerPressed} alt="" />
+        <span>SOON</span>
       </button>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section class="video-section">
+    <h3>Video</h3>
+    <video controls poster={galleryCenterSrc} class="video-player">
+      {#if videoSrc}
+        <source src={videoSrc} type="video/mp4" />
+      {/if}
+      Il tuo browser non supporta il tag video.
+    </video>
+  </section>
+
   <footer class="footer">
-    <img src={imgPolitecnicoBianco} alt="Politecnico Bianco" class="footer-logo" />
+    <img src={footerLogoSrc} alt="Politecnico Milano" />
   </footer>
 </main>
 
 <style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-primary);
-  }
-
-  .container {
+  .page {
     width: 100%;
     max-width: 1512px;
     margin: 0 auto;
-    background-color: var(--background-primary);
+    padding: 40px 39px 96px;
+    background: var(--background-primary);
+    box-sizing: border-box;
   }
-
-  /* Header */
-  .header {
-    padding: 1.5rem 4%;
-  }
-
-  .logo {
-    height: 45px;
-    width: auto;
-  }
-
-  /* Hero Section */
-  .hero {
-    padding: 2rem 4%;
-    background-color: var(--background-primary);
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .hero-left {
-    display: flex;
-    align-items: center;
-  }
-
-  .title-we-win {
-    font-family: var(--font-accent);
-    font-size: 323px;
-    font-weight: 900;
-    color: var(--text-inverse);
-    margin: 0;
-    line-height: 1;
-  }
-
-  .hero-right {
-    display: flex;
-    justify-content: center;
-  }
-
+  .header { margin-bottom: 28px; }
+  .logo { width: 145px; height: 45px; object-fit: contain; display: block; }
+  .hero { margin-bottom: 56px; }
   .hero-image {
-    max-width: 588px;
     width: 100%;
     height: auto;
-    object-fit: cover;
-    border-radius: 16px;
+    min-height: 420px;
+    display: block;
+    border-radius: 12px;
+    object-fit: contain;
   }
 
-  .title-when {
-    font-family: var(--font-primary);
-    font-size: 250px;
-    font-style: italic;
-    font-weight: 700;
-    color: var(--brand-700);
-    margin: 0;
-    line-height: 1;
+  .split-band {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background: var(--brand-700);
+    margin-bottom: 80px;
   }
-
-  .title-we-fight {
-    font-family: var(--font-accent);
-    font-size: 128px;
-    font-weight: 900;
-    color: var(--text-inverse);
-    margin: 0;
-    line-height: 1;
-  }
-
-  /* Office Section */
-  .office-section {
-    padding: 2rem 4%;
-    text-align: center;
-  }
-
-  .office-image {
-    max-width: 1144px;
-    width: 100%;
-    height: auto;
-  }
-
-  /* Dark Section */
-  .dark-section {
-    background-color: var(--brand-700);
-    padding: 3rem 4%;
+  .split-section {
+    max-width: 1512px;
+    margin: 0 auto;
+    padding: 56px 39px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
+    gap: 56px;
+    align-items: start;
   }
-
-  .dark-content {
-    color: var(--text-inverse);
-  }
-
-  .text-kamala {
-    font-family: var(--font-secondary);
+  .split-text h2 {
+    margin: 0 0 20px;
+    color: #fff;
+    font-family: var(--font-primary);
     font-size: 64px;
     font-style: italic;
-    color: var(--brand-500);
-    margin: 0 0 1rem 0;
-  }
-
-  .text-legacy {
-    font-family: var(--font-accent);
-    font-size: 128px;
-    font-style: italic;
-    color: var(--brand-500);
-    margin: 0 0 1rem 0;
+    font-weight: 700;
     line-height: 1;
   }
-
-  .text-body {
+  .split-quote {
+    margin: 0 0 16px;
+    color: #fff;
+    font-family: var(--font-primary);
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.2;
+  }
+  .split-text p {
+    margin: 0;
+    color: #fff;
     font-family: var(--font-secondary);
     font-size: 32px;
-    color: var(--text-inverse);
-    margin: 1rem 0;
-    line-height: 1.4;
+    line-height: 1.3;
   }
-
-  .text-small {
-    font-family: var(--font-secondary);
-    font-size: 32px;
-    color: var(--brand-500);
-    margin: 1rem 0;
+  .split-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-self: end;
   }
-
-  .dark-image {
-    max-width: 692px;
+  .split-photo {
     width: 100%;
+    max-width: 692px;
     height: auto;
-    object-fit: cover;
-    border-radius: 16px;
+    display: block;
+    border-radius: 12px;
+    object-fit: contain;
   }
 
-  /* Gallery Section */
-  .gallery-section {
-    padding: 3rem 4%;
-    background-color: var(--background-primary);
+  .figma-btn {
+    position: relative;
+    width: 216px;
+    height: 65px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.12s ease;
+  }
+  .figma-btn-bg {
+    position: absolute;
+    inset: 0;
+    width: 216px;
+    height: 65px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+  }
+  .figma-btn-inner {
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    width: 212px;
+    height: 63px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+  }
+  .figma-btn .state-default {
+    opacity: 1;
+  }
+  .figma-btn span {
+    position: absolute;
+    top: 17px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1;
+    color: #ffffff;
     text-align: center;
+    transition: color 0.12s ease;
+  }
+  .figma-btn--join {
+    margin-top: 28px;
+  }
+  .figma-btn--join span {
+    color: var(--brand-500);
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-size: 32px;
+  }
+  .figma-btn:hover {
+    transform: translateY(-1px);
+  }
+  .figma-btn:active {
+    transform: translateY(0);
+  }
+  .figma-btn:hover .state-default,
+  .figma-btn:hover .state-pressed,
+  .figma-btn:active .state-default,
+  .figma-btn:active .state-hover {
+    opacity: 0;
+  }
+  .figma-btn:hover .state-hover {
+    opacity: 1;
+  }
+  .figma-btn:active .state-pressed {
+    opacity: 1;
+  }
+  .figma-btn--join:hover span,
+  .figma-btn--join:active span {
+    color: #ffffff;
+  }
+  .figma-btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
   }
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 0.8fr 1.6fr 0.8fr;
+    gap: 42px;
+    align-items: end;
   }
-
-  .gallery-img {
+  .gallery-item {
+    margin: 0;
     width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-
-  /* Buttons */
-  .buttons-section {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    position: relative;
-    width: 224px;
-    height: 128px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    overflow: hidden;
-    transition: transform 0.2s;
   }
-
-  .btn:hover {
-    transform: scale(1.05);
-  }
-
-  .btn-svg {
-    position: absolute;
-    inset: 0;
+  .gallery-item--side { aspect-ratio: 4 / 5; }
+  .gallery-item--center { aspect-ratio: 3 / 2; }
+  .gallery-item img {
     width: 100%;
     height: 100%;
-    z-index: 1;
+    display: block;
+    object-fit: contain;
   }
 
-  .btn-inner {
-    position: absolute;
-    width: 212px;
-    height: 63px;
-    top: 8px;
-    left: 11px;
-    z-index: 2;
+  .gallery-buttons {
+    margin-top: 58px;
+    display: flex;
+    justify-content: center;
+    gap: 116px;
   }
 
-  .btn-text {
-    position: relative;
-    z-index: 3;
+  .video-section {
+    margin: 84px 0;
+    text-align: center;
+  }
+  .video-section h3 {
+    margin: 0 0 20px;
+    color: var(--brand-700);
     font-family: var(--font-primary);
-    font-size: 32px;
+    font-size: 48px;
     font-style: italic;
-    color: var(--text-inverse);
     font-weight: 700;
-    text-align: center;
+  }
+  .video-player {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
-  .btn-secondary {
-    width: 216px;
-  }
-
-  /* Footer */
   .footer {
-    background-color: var(--brand-700);
-    padding: 3rem 4%;
-    text-align: center;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    height: 158px;
+    background: var(--brand-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
-  .footer-logo {
+  .footer img {
+    width: 201px;
     height: 78px;
-    width: auto;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .hero-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .title-we-win {
-      font-size: 200px;
-    }
-
-    .title-when {
-      font-size: 150px;
-    }
-
-    .title-we-fight {
-      font-size: 80px;
-    }
-
-    .dark-section {
-      grid-template-columns: 1fr;
-    }
-
-    .gallery-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .buttons-section {
-      gap: 1rem;
-    }
-
-    .btn,
-    .btn-secondary {
-      width: 180px;
-      height: 100px;
-    }
-
-    .text-kamala {
-      font-size: 48px;
-    }
-
-    .text-legacy {
-      font-size: 80px;
-    }
-
-    .text-body,
-    .text-small {
-      font-size: 20px;
-    }
+    object-fit: contain;
+    display: block;
   }
 </style>
