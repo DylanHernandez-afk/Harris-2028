@@ -7,6 +7,18 @@
 	let { children } = $props();
 </script>
 
+<style global>
+	:global(body) {
+		background-color: var(--background-primary);
+		margin: 0;
+		padding: 0;
+	}
+	:global(main) {
+		width: 100%;
+		background-color: var(--background-primary);
+	}
+</style>
+
 <svelte:head>
 	<link rel="icon" href={favicon} />
 
