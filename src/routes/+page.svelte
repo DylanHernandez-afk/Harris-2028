@@ -29,13 +29,25 @@
   const galleryRightSrc = "https://www.figma.com/api/mcp/asset/7737048f-6d92-403d-9585-980c0c4a4724";
   const videoSrc = "/videos/Kam-video.mp4";
   
+  // Gallery images - Story tab
+  const storyLeftSrc = "https://www.figma.com/api/mcp/asset/4a8e436b-f335-4f4c-aa16-842fc9b78a2e"; // kamd2 1
+  const storyRightSrc = "https://www.figma.com/api/mcp/asset/fdd3904f-bb67-4e0e-aec2-cd06a9da4fce"; // FUTURE 1
+  
+  // Gallery images - Now tab
+  const nowLeftSrc = "https://www.figma.com/api/mcp/asset/578b4370-ef7d-411d-8870-d8360b4d5928"; // kam3a 1
+  const nowCenterSrc = "https://www.figma.com/api/mcp/asset/633f1f22-d5ec-4d83-8d79-7804e8e2f346"; // victo 1
+  const nowRightSrc = "https://www.figma.com/api/mcp/asset/4c217699-643e-4cde-b090-1e808dc8ef87"; // kam3c 1
+  
+  // Gallery images - Soon tab
+  const soonLeftSrc = "https://www.figma.com/api/mcp/asset/82e6802e-c86f-411d-a2f1-b9506e41e2cb"; // kam3b 1
+  
   // Gallery state
   let activeGallery = 'story';
   
   const galleryImages = {
-    story: { left: galleryLeftSrc, center: galleryCenterSrc, right: galleryRightSrc },
-    now: { left: galleryLeftSrc, center: galleryCenterSrc, right: galleryRightSrc },
-    soon: { left: galleryLeftSrc, center: galleryCenterSrc, right: galleryRightSrc }
+    story: { left: storyLeftSrc, center: galleryCenterSrc, right: storyRightSrc },
+    now: { left: nowLeftSrc, center: nowCenterSrc, right: nowRightSrc },
+    soon: { left: soonLeftSrc, center: galleryCenterSrc, right: galleryRightSrc }
   };
   
   $: currentImages = galleryImages[activeGallery];
@@ -188,7 +200,7 @@
     line-height: 1;
   }
   .split-quote {
-    margin: 0 0 16px;
+    margin: 0 0 40px;
     color: #fff;
     font-family: "Mrs Eaves", var(--font-primary), serif;
     font-size: 40px;
@@ -304,6 +316,8 @@
   }
 
   .gallery-grid {
+    max-width: 1512px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 0.8fr 1.6fr 0.8fr;
     gap: 42px;
@@ -331,47 +345,60 @@
     transform: scale(1.05);
   }
 
+  .gallery-section {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background: var(--background-primary);
+    padding: 80px 39px;
+    margin-bottom: 0;
+  }
+
   .gallery-title {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-    margin: 0 0 56px;
+    max-width: 1512px;
+    margin: 0 auto 56px;
     text-align: center;
+    line-height: 1.1;
   }
   .gallery-title-part {
     font-style: italic;
     font-weight: 700;
-    line-height: 1.2;
   }
   .gallery-title-kamalas {
     font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
     font-size: 64px;
     color: var(--brand-500);
+    display: block;
+    margin-bottom: 0;
   }
   .gallery-title-legacy {
     font-family: "Mr Eaves XL San OT", var(--font-primary), sans-serif;
     font-size: 128px;
     color: var(--brand-900);
     font-weight: 800;
+    display: inline-block;
+    line-height: 1;
+    margin-right: 12px;
   }
   .gallery-title-inthe {
     font-family: "Mrs Eaves XL Serif OT", var(--font-primary), serif;
     font-size: 64px;
     color: var(--brand-500);
-    flex-basis: 100%;
+    display: inline-block;
+    margin: 0 12px 0 0;
   }
   .gallery-title-making {
     font-family: "Mr Eaves XL San OT", var(--font-primary), sans-serif;
     font-size: 128px;
     color: var(--brand-800);
     font-weight: 800;
-    flex-basis: 100%;
+    display: inline-block;
+    line-height: 1;
   }
 
   .gallery-buttons {
-    margin-top: 80px;
-    margin-bottom: 120px;
+    max-width: 1512px;
+    margin: 80px auto 0;
     display: flex;
     justify-content: center;
     gap: 116px;
