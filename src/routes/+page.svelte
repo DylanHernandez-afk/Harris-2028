@@ -439,7 +439,7 @@
     object-fit: contain;
     display: block;
   }
-</style>
+
   /* ===== RESPONSIVE DESIGN ===== */
 
   /* Mobile (max-width: 744px) */
