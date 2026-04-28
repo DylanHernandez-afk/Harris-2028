@@ -450,12 +450,12 @@
     .hero { margin-bottom: 20px; }
     .hero-image { min-height: 280px; border-radius: 8px; }
     .split-band { margin-bottom: 40px; }
-    .split-section { grid-template-columns: 1fr 1fr; gap: 16px; padding: 40px 24px; align-items: flex-end; }
+    .split-section { grid-template-columns: 1fr 1fr; gap: 16px; padding: 40px 24px; align-items: center; }
     .split-text h2 { font-size: 32px; margin-bottom: 12px; line-height: 1.1; }
     .split-quote { margin: 0 0 24px; font-size: 20px; padding-bottom: 12px; padding-top: 0; line-height: 1.1; }
     .split-text p { font-size: 16px; line-height: 1.3; }
     .split-para-spacer { margin-bottom: 18px !important; font-size: 14px; }
-    .split-photo-wrap { align-items: flex-end; }
+    .split-photo-wrap { align-items: center; margin-bottom: 0; }
     .split-photo { max-width: 157px; max-height: 153px; }
     .figma-btn--join { width: 142px; height: 43px; margin-top: 16px; }
     .figma-btn--join .figma-btn-bg { width: 142px; height: 43px; }
@@ -470,11 +470,11 @@
     .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
     .gallery-item--side { aspect-ratio: 4/5; }
     .gallery-item--center { aspect-ratio: 3/2; }
-    .gallery-buttons { gap: 16px; margin: 32px auto 0; flex-wrap: wrap; justify-content: center; }
-    .figma-btn--choice { width: 92px; height: 28px; }
-    .figma-btn--choice .figma-btn-bg { width: 92px; height: 28px; }
-    .figma-btn--choice .figma-btn-inner { width: 90px; height: 27px; left: 5px; top: 3px; }
-    .figma-btn--choice span { font-size: 13px; top: 7px; }
+    .gallery-buttons { gap: 12px; margin: 32px auto 0; flex-wrap: nowrap; justify-content: center; }
+    .figma-btn--choice { width: 130px; height: 42px; }
+    .figma-btn--choice .figma-btn-bg { width: 130px; height: 42px; }
+    .figma-btn--choice .figma-btn-inner { width: 127px; height: 40px; left: 6px; top: 4px; }
+    .figma-btn--choice span { font-size: 15px; top: 50%; transform: translateY(-50%); left: 0; right: 0; }
     .video-section { margin-bottom: 0; }
     .footer { height: 80px; }
     .footer img { width: 120px; height: 46px; }
