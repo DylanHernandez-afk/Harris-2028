@@ -150,15 +150,27 @@
 <style>
   .page {
     width: 100%;
-    max-width: 1512px;
-    margin: 0 auto;
-    padding: 40px 39px 0;
+    margin: 0;
+    padding: 0;
     background: #e2d5bf;
     box-sizing: border-box;
   }
-  .header { margin-bottom: 28px; }
+  
+  .header {
+    max-width: 1512px;
+    margin: 0 auto 28px;
+    padding: 40px 39px 0;
+    box-sizing: border-box;
+  }
+  
   .logo { width: 145px; height: 45px; object-fit: contain; display: block; }
-  .hero { margin-bottom: 56px; }
+  
+  .hero {
+    max-width: 1512px;
+    margin: 0 auto 56px;
+    padding: 0 39px;
+    box-sizing: border-box;
+  }
   .hero-image {
     width: 100%;
     height: auto;
